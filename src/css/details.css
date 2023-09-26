@@ -1,0 +1,29 @@
+body{
+    background-color: rgb(198, 198, 198);
+}
+.details{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    height: 100vh;
+    align-items: center;
+}
+.boxDetails{
+    display: flex;
+    flex-direction: row;
+    background-color: aliceblue;
+    margin-top: 10vh;
+    margin-left: 10vw;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    width: 70vw;
+    height: 80vh;
+    align-items: center;
+
+}
+#avatar{
+    border-radius: 50%;
+    width: 30vw;
+    height: 30vw;
+
+}

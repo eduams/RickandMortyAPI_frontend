@@ -1,0 +1,25 @@
+body{
+    background-color: rgb(198, 198, 198);
+}
+.home{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    height: 100vh;
+    align-items: center;
+}
+.box{
+    border-color: aliceblue;
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+}
+button{
+    margin: 10px;
+}
+img{
+    padding: 10px;
+}
