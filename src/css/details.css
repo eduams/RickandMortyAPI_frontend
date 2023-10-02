@@ -27,3 +27,12 @@ body{
     height: 30vw;
 
 }
+
+.edit {
+    display: flex;
+    flex-direction: row;
+}
+.edit button{
+    margin-left: 2vw;
+    width: 30%;
+}

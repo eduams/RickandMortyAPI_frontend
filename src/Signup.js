@@ -2,46 +2,39 @@ import React, { useState } from 'react';
 import './css/login.css';
 import { Link } from 'react-router-dom';
 
-function Login() {
+function Signup() {
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
 
   const loginGo = (event) => {
     event.preventDefault();
-    console.log(login);
-    console.log(password);
 
-    var dataForLogin = {
+    var dataForSignup = {
       login: login,
       password: password
     }
   
-    fetch(`http://127.0.0.1:8000/api/autentication`, {
+    fetch(`http://127.0.0.1:8000/api/signup`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
     },
-    body: JSON.stringify(dataForLogin)
+    body: JSON.stringify(dataForSignup)
 
     })
       .then(response => response.json())
       .then(data => {
-        if (data == true){
-          window.alert("Autenticação bem sucedida");
-          localStorage.setItem('auth',true);
-          window.location.href = '/Login'
-        }
-        else{
-          window.alert("Autenticação falhou");
-        }
+          window.alert("Cadastro bem sucedido");
+          window.location.href = '/Home'
       })
       .catch(error => {
+        window.alert("Cadastro mal sucedido");
       });
   }
-  if(!localStorage.getItem('auth')){
   return (
     <div className='login'>
       <div className='login_box'>
+      <h1>Cadastro</h1>
         <form onSubmit={loginGo}>
           <div>
             <h2>Login</h2>
@@ -49,22 +42,12 @@ function Login() {
             <h2>Senha</h2>
             <input type='password' value={password} onChange={(e) => { setPassword(e.target.value) }} />
           </div>
-          <button id='login_button' type='submit'>Login</button>
+          <button id='login_button' type='submit'>Fazer cadastro</button>
         </form>
-        <Link to="/Signup">Cadastrar</Link>
         </div>
       </div>
-  );}
-  else{
-    return (
-    <div className='login'>
-      <div className='login_box'>
-        <h1>Você já está logado!</h1>
-      </div>
-    </div>
-    )
-  }
+  );
   
 }
 
-export default Login;
+export default Signup;

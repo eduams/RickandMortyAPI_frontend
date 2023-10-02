@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from 'react';
 import './css/home.css';
 import placeholder from './img/placeholder.png'
 import { Link } from 'react-router-dom';
@@ -10,6 +9,8 @@ var charimg2 = placeholder;
 var charimg3 = placeholder;
 
 function Random_no(){
+
+
   chars[0] = Math.floor(Math.random() * 826);
   chars[1] = Math.floor(Math.random() * 826);
   chars[2] = Math.floor(Math.random() * 826);
@@ -23,24 +24,19 @@ var charId = [];
 
 var charObj = [];
 
-for (var x = 1; x <= 3; x++) {
-  (function (x) { //IIFE
+for (let x = 1; x <= 3; x++) {
     fetch(`https://rickandmortyapi.com/api/character/${chars[x - 1]}`, {
       method: 'GET'
     })
       .then(response => response.json())
       .then(data => {
         charObj[x - 1] = data;
-        console.log(charObj[x])
         charId[x-1] = data.id;
         var img = document.getElementById('img' + x);
         img.setAttribute("src", data.image);
-        console.log(charId[x-1])
       })
       .catch(error => {
-        console.error('Erro:', error);
       });
-  })(x);
 }
 
   return (
@@ -48,28 +44,22 @@ for (var x = 1; x <= 3; x++) {
       <div className='box'>
         <img src={charimg1} id='img1'>
         </img>
-        <button>
-          <h2><Link to="/Details" state={{character: 0, array: charObj}}>
-            Detalhes</Link></h2>
-        </button>
+          <Link to="/Details" state={{character: 0, array: charObj, hideButton: false}}><button><h2>
+            Detalhes</h2> </button></Link>
       </div>
 
       <div className='box'>
         <img src={charimg2} id='img2'>
         </img>
-        <button>
-          <h2><Link to="/Details" state={{character: 1, array: charObj}}>
-            Detalhes</Link></h2>
-        </button>
+          <Link to="/Details" state={{character: 1, array: charObj, hideButton: false}}><button><h2>
+            Detalhes</h2> </button></Link>
       </div>
 
       <div className='box'>
         <img src={charimg3} id='img3'>
         </img>
-        <button>
-          <h2><Link to="/Details" state={{character: 2, array: charObj}}>
-            Detalhes</Link></h2>        
-        </button>
+          <Link to="/Details" state={{character: 2, array: charObj, hideButton: false}}><button>
+          <h2>Detalhes</h2></button></Link>  
       </div>
     </div>
 

@@ -6,9 +6,10 @@ import Characters from './Characters';
 import About from './About';
 import Login from './Login';
 import Details from './Details';
+import Signup from './Signup';
 import Navbar from './Navbar';
 
-function App() {
+function App() {  
   return (
     <Router>
     <Navbar />
@@ -18,6 +19,7 @@ function App() {
         <Route path="/About" element={<About />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/Details" element={<Details />} />
+        <Route path="/Signup" element={<Signup />} />
       </Routes>
     </Router>  );
 }
