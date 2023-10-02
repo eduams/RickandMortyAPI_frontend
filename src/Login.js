@@ -36,6 +36,7 @@ function Login() {
         }
       })
       .catch(error => {
+        console.error('Erro:', error);
       });
   }
   if(!localStorage.getItem('auth')){

@@ -28,7 +28,7 @@ function Signup() {
           window.location.href = '/Home'
       })
       .catch(error => {
-        window.alert("Cadastro mal sucedido");
+        console.error('Erro:', error);
       });
   }
   return (

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './css/home.css';
 import { Link } from 'react-router-dom';
 import placeholder from './img/placeholder.png'
-import { useLocation } from 'react-router-dom';
 
 const allBox = document.getElementById("characters");
 
@@ -25,6 +24,7 @@ function Characters() {
     }
     })
     .catch(error => {
+      console.error('Erro:', error);      
       });
 
     fetch(`http://127.0.0.1:8000/api/dados`, {
@@ -37,6 +37,7 @@ function Characters() {
         }
       })
       .catch(error => {
+        console.error('Erro:', error);
       });
  }, [])
 
